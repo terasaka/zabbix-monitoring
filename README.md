@@ -11,7 +11,7 @@ A solução proposta checa a validade do certificado utilizando o script *ssl-ce
 
 Para utilizar os scripts externos, confirme o path dos scritps externos em seu servidor Zabbix:
 
-`$ cat /etc/zabbix/zabbix_server.conf |grep ExternalScripts`
+`$ grep ExternalScripts /etc/zabbix/zabbix_server.conf`
 
 Acesse o diretorio:  
 `$ cd /usr/lib/zabbix/externalscripts`  
@@ -44,11 +44,32 @@ Resumindo, vamos chamar esse script pelo zabbix e passar o argumento do host par
 Tudo funcionando, vamos para as configurações no Zabbix.
 
 ---
+## Importando Template
+
+Clone o repositório
+
+`$ git clone https://github.com/terasaka/zabbix-monitoring.git`
+
+Importe o template
+
+> Configuration -> Templates 
+
+![Import Template](https://github.com/terasaka/repo-img/raw/master/template-import.png)
+
+Escolha o arquivo `TemplateSSL.xml`
+
+![Import](https://github.com/terasaka/repo-img/raw/master/import.png)
+
+Template importado
+
+![Template](https://github.com/terasaka/repo-img/raw/master/template.png)
+
+Basta associar os hosts que pretende monitorar e usar no hostname do host a URL monitorada.
+
 
 ## Criando Template e configurando o host monitorado
 
-Crie um novo template ou adicione um novo item, conforme sua preferência.
-No meu caso, vou criar um template novo.
+Caso queria criar o template manualmente e entender um pouco melhor, siga os passos abaixo:
 
 > Configuration -> Templates
 
